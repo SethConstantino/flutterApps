@@ -4,6 +4,8 @@ import 'package:test_flutter/screens/paginaDos.dart';
 import 'package:test_flutter/screens/paginaTres.dart';
 import 'package:test_flutter/screens/TestStack.dart';
 import 'package:test_flutter/screens/paginaForm.dart';
+import 'package:test_flutter/screens/payment.dart';
+
 
 void main() {
   runApp(MaterialApp(
@@ -16,7 +18,8 @@ void main() {
         '/tercero': (context) => const PaginaTres(),
         '/datos': (context) => const Datos(),
         '/testSatck': (context) => const TestStack(),
-        '/formulario': (context) => const PaginaForm()
+        '/formulario': (context) => const PaginaForm(),
+        '/pago':(context) => const Payment()
       }
       //home: HomePage(),
       ));
@@ -30,11 +33,11 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: const Icon(Icons.menu),
-        backgroundColor: Color.fromARGB(255, 219, 21, 21),
+        backgroundColor: Color.fromARGB(255, 7, 238, 45),
         centerTitle: true,
         title: const Text('Pagina inicial'),
         elevation: 20.0,
-        shadowColor: Color.fromARGB(255, 192, 167, 167),
+        shadowColor: Color.fromARGB(255, 228, 6, 161),
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(15))),
         actions: <Widget>[
@@ -127,6 +130,21 @@ class HomePage extends StatelessWidget {
                     builder: (context) => const Datos(),
                   );
                   Navigator.pushNamed(context, '/formulario');
+                }),
+            const SizedBox(height: 10.0),
+            ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                      Color.fromARGB(255, 170, 128, 128)),
+                  padding: MaterialStateProperty.all(
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 15)),
+                ),
+                child: const Text('Payment'),
+                onPressed: () {
+                  final route = MaterialPageRoute(
+                    builder: (context) => const Payment(),
+                  );
+                  Navigator.pushNamed(context, '/pago');
                 })
           ],
         ),
